@@ -22,6 +22,7 @@ main {
 }
 
 div.top {
+    border: 5px line black;
     display: flex;
     justify-content: space-between;
 }
