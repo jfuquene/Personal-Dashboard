@@ -20,4 +20,8 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
             throw Error("Something went wrong")
         }
         return res.json()
-    }).then(data => console.log(data))
+    }).then( data => {
+        document.getElementById("crypto").innerHTML = `
+        <img src=${data.image.small} />
+        <span>${data.name}</span>
+    `})
