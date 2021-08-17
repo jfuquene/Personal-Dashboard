@@ -32,3 +32,6 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
             <p>👇: $${data.market_data.low_24h.usd}</p>
         `
     })
+
+    let time = document.getElementById("time")
+    time.innerHTML = date.toLocaleTimeString("en-us", {timeStyle: "short"})
