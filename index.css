@@ -37,12 +37,12 @@ div#crypto > p {
     margin: 0;
 }
 
-div#crypto-top {
+div#symbol {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
 }
 
-div#crypto-top > span {
+div#symbol > span {
     margin-left: 10px;
 }
