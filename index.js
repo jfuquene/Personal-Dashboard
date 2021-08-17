@@ -26,7 +26,7 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
         <span>${data.name}</span>`;
 
         document.getElementById("crypto").innerHTML += `
-            <p>🎯: </p>
+            <p>🎯: $${data.market_data.current_price.usd}</p>
             <p>👆: </p>
             <p>👇: </p>
         `
