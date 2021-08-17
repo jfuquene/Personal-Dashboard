@@ -22,7 +22,7 @@ main {
 }
 
 div.top {
-    border: 5px line black;
+    border: 5px solid black;
     display: flex;
     justify-content: space-between;
 }
@@ -34,11 +34,16 @@ div#crypto {
     font-size: 1.3rem;
 }
 
+div#crypto > p {
+    margin: 0;
+}
+
 div#crypto-top {
     display: flex;
     align-items: center;
+    margin-bottom: 5px;
 }
 
 div#crypto-top > span {
-    margin-left: 10px;
+    margin-left: 100px;
 }
