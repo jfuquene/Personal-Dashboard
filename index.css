@@ -34,13 +34,18 @@ div#crypto {
 }
 
 div#crypto > p {
-    margin: 0;
+    margin-left: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
+
 }
 
 div#symbol {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
+    margin-left: 5px;
+    margin-top: 2px;
 }
 
 div#symbol > span {
