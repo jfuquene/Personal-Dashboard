@@ -23,5 +23,11 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
     }).then( data => {
         document.getElementById("crypto").innerHTML = `
         <img src=${data.image.small} />
-        <span>${data.name}</span>
-    `})
+        <span>${data.name}</span>`;
+
+        document.getElementById("crypto").innerHTML += `
+            <p>🎯: </p>
+            <p>👆: </p>
+            <p>👇: </p>
+        `
+    })
