@@ -34,4 +34,5 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
     })
 
     let time = document.getElementById("time")
-    time.innerHTML = date.toLocaleTimeString("en-us", {timeStyle: "short"})
+    const date = new Date()
+    time.textContent = date.toLocaleTimeString("en-us", {timeStyle: "medium"})
