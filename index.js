@@ -33,6 +33,11 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
         `
     })
 
-    let time = document.getElementById("time")
+    let getTime = () => {
+        let time = document.getElementById("time")
     const date = new Date()
     time.textContent = date.toLocaleTimeString("en-us", {timeStyle: "medium"})
+    }
+    
+
+    setInterval(getTime, 1000)
