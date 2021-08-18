@@ -5,7 +5,7 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
     .then(res => res.json())
     .then(data => {
         document.body.style.backgroundImage = `url(${data.urls.regular})`
-        document.body.innerHTML += data.user.name
+        document.getElementById("author").textContent = `by: ${data.user.name}`
     })
     .catch(err => {
         // Use a default background image/author
@@ -55,11 +55,12 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
              }
              return res.json()})
         .then(data => {
+            console.log(data)
             const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
             document.getElementById("weather").innerHTML = `
                 <img src=${iconUrl} />
-                <p> ${Math.round(data.main.temp)}º</p>
-                <p> ${data.name}</p>
+                <p class="weather-temp"> ${Math.round(data.main.temp)}º</p>
+                <p class="weather-city" > ${data.name}</p>
             `
         })
         .catch(err => console.log(err))
