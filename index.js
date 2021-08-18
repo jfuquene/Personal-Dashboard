@@ -47,27 +47,20 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
 
 
     navigator.geolocation.getCurrentPosition(position => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=`)
+        console.log(position)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=`)
         .then(res => {
             if (!res.ok){
                 throw Error("Weather data not available")
              }
              return res.json()})
-        .then(data => console.log(data))
+        .then(data => {
+            const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+            document.getElementById("weather").innerHTML = `
+                <img src=${iconUrl} />
+                <p> ${Math.round(data.main.temp)}º</p>
+                <p> ${data.name}</p>
+            `
+        })
         .catch(err => console.log(err))
     });
-
-    // coords: 
-    // GeolocationCoordinates
-    //  {latitude: 38.8498562, 
-    // longitude: -77.0510555, 
-    // altitude: null, 
-    // accuracy: 11.577, 
-    // altitudeAccuracy: null, …}
-
-// async function getWeather(){
-//     let response = await fetch("api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=3")
-//     let data = await response.json()
-//     console.log(data)
-// }
-// getWeather()
