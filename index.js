@@ -1,4 +1,5 @@
-let url = 
+let geoUrl = "api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}" 
+let apiKey = ""
 
 fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature")
     .then(res => res.json())
@@ -41,3 +42,24 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
     
 
     setInterval(getTime, 1000)
+
+
+
+    navigator.geolocation.getCurrentPosition(position => {
+        console.log(position)
+    });
+
+    // coords: 
+    // GeolocationCoordinates
+    //  {latitude: 38.8498562, 
+    // longitude: -77.0510555, 
+    // altitude: null, 
+    // accuracy: 11.577, 
+    // altitudeAccuracy: null, …}
+
+// async function getWeather(){
+//     let response = await fetch("api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=3")
+//     let data = await response.json()
+//     console.log(data)
+// }
+// getWeather()
