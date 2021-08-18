@@ -1,5 +1,4 @@
-let geoUrl = "api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}" 
-let apiKey = ""
+
 
 fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature")
     .then(res => res.json())
