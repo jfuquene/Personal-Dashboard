@@ -47,7 +47,7 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
 
     navigator.geolocation.getCurrentPosition(position => {
         console.log(position)
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=3aa8b4452123ed4982ec0ea0cc5b9e04`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=`)
         .then(res => {
             if (!res.ok){
                 throw Error("Weather data not available")
