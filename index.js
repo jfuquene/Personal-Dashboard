@@ -21,6 +21,7 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
         }
         return res.json()
     }).then( data => {
+        console.log(data)
         document.getElementById("symbol").innerHTML = `
         <img src=${data.image.small} />
         <span>${data.name}</span>
@@ -46,8 +47,7 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
 
 
     navigator.geolocation.getCurrentPosition(position => {
-        console.log(position)
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=3aa8b4452123ed4982ec0ea0cc5b9e04`)
         .then(res => {
             if (!res.ok){
                 throw Error("Weather data not available")
@@ -64,3 +64,21 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
         })
         .catch(err => console.log(err))
     });
+
+
+    function microsoft(){
+        fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-upgrades-downgrades?symbol=MSFT&region=US", {
+            "method": "GET",
+            "headers":{
+                "x-rapidapi-host": "",
+		        "x-rapidapi-key": ""
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("stock").innerHTML = `
+            <p>Stock: ${data.price.symbol}</p>
+            <p>Post Market: ${data.price.postMarketPrice.raw}</p> `
+        })
+    }
+microsoft()
