@@ -21,7 +21,6 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
         }
         return res.json()
     }).then( data => {
-        console.log(data)
         document.getElementById("symbol").innerHTML = `
         <img src=${data.image.small} />
         <span>${data.name}</span>
@@ -70,14 +69,16 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
         fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-upgrades-downgrades?symbol=MSFT&region=US", {
             "method": "GET",
             "headers":{
-                "x-rapidapi-host": "",
-		        "x-rapidapi-key": ""
+                "x-rapidapi-host": "
             }
         })
         .then(res => res.json())
         .then(data => {
+
+            console.log(data)
             document.getElementById("stock").innerHTML = `
             <p>Stock: ${data.price.symbol}</p>
+            <p>Name: ${data.price.longName}
             <p>Post Market: ${data.price.postMarketPrice.raw}</p> `
         })
     }
