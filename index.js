@@ -14,24 +14,24 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
     })
 
 
-    fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
-    .then(res => {
-        if (!res.ok) {
-            throw Error("Something went wrong")
-        }
-        return res.json()
-    }).then( data => {
-        document.getElementById("symbol").innerHTML = `
-        <img src=${data.image.small} />
-        <span>${data.name}</span>
-        `;
+    // fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
+    // .then(res => {
+    //     if (!res.ok) {
+    //         throw Error("Something went wrong")
+    //     }
+    //     return res.json()
+    // }).then( data => {
+    //     document.getElementById("symbol").innerHTML = `
+    //     <img src=${data.image.small} />
+    //     <span>${data.name}</span>
+    //     `;
 
-        document.getElementById("crypto").innerHTML += `
-            <p>🎯: $${data.market_data.current_price.usd}</p>
-            <p>👆: $${data.market_data.high_24h.usd}</p>
-            <p>👇: $${data.market_data.low_24h.usd}</p>
-        `
-    })
+    //     document.getElementById("crypto").innerHTML += `
+    //         <p>🎯: $${data.market_data.current_price.usd}</p>
+    //         <p>👆: $${data.market_data.high_24h.usd}</p>
+    //         <p>👇: $${data.market_data.low_24h.usd}</p>
+    //     `
+    // })
 
     let getTime = () => {
         let time = document.getElementById("time")
@@ -46,7 +46,7 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
 
 
     navigator.geolocation.getCurrentPosition(position => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=3aa8b4452123ed4982ec0ea0cc5b9e04`)
         .then(res => {
             if (!res.ok){
                 throw Error("Weather data not available")
@@ -69,17 +69,38 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
         fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-upgrades-downgrades?symbol=MSFT&region=US", {
             "method": "GET",
             "headers":{
-                "x-rapidapi-host": "
+                "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+		        "x-rapidapi-key": "4517e7cd3fmsh08994a48993bac2p1ac86bjsndaa839e22293"
             }
         })
         .then(res => res.json())
         .then(data => {
 
-            console.log(data)
+            // console.log(data)
             document.getElementById("stock").innerHTML = `
+            <p>Stock: ${data.price.symbol}</p>
+            <p>Name: ${data.price.longName}
+            <p>Post Market: ${data.price.postMarketPrice.raw}</p></br></br>`
+        })
+    }
+microsoft()
+
+
+    function Tesla(){
+        fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-upgrades-downgrades?symbol=TSLA&region=US", {
+            "method": "GET",
+            "headers":{
+                "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+		        "x-rapidapi-key": "4517e7cd3fmsh08994a48993bac2p1ac86bjsndaa839e22293"
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("stock").innerHTML += `
             <p>Stock: ${data.price.symbol}</p>
             <p>Name: ${data.price.longName}
             <p>Post Market: ${data.price.postMarketPrice.raw}</p> `
         })
     }
-microsoft()
+
+Tesla()
