@@ -1,5 +1,6 @@
 
 
+
 fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature")
     .then(res => res.json())
     .then(data => {
@@ -7,6 +8,7 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
         document.getElementById("author").textContent = `by: ${data.user.name}`
     })
     .catch(err => {
+        console.log(err)
         // Use a default background image/author
         document.body.style.backgroundImage = `url(https://images.unsplash.com/photo-1560008511-11c63416e52d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMTEwMjl8MHwxfHJhbmRvbXx8fHx8fHx8fDE2MjI4NDIxMTc&ixlib=rb-1.2.1&q=80&w=1080
 )`
@@ -79,16 +81,14 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
             // console.log(data)
             document.getElementById("stock").innerHTML = `
             <p>🎯Stock: ${data.price.symbol}</p>
-            <p>👆Name: ${data.price.longName}
-            <p>👇Post Market: ${data.price.postMarketPrice.raw}</p></br></br>`
+            <p>🎮Name: ${data.price.longName}
+            <p>💻Post Market: ${data.price.postMarketPrice.raw}</p></br></br>`
         })
-        Tesla()
     }
+
+    microsoft()
     
-microsoft()
-
-
-    function Tesla(){
+function tesla(){
         fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-upgrades-downgrades?symbol=TSLA&region=US", {
             "method": "GET",
             "headers":{
@@ -99,10 +99,9 @@ microsoft()
         .then(res => res.json())
         .then(data => {
             document.getElementById("stock").innerHTML += `
-            <p>Stock: ${data.price.symbol}</p>
-            <p>Name: ${data.price.longName}
-            <p>Post Market: ${data.price.postMarketPrice.raw}</p> `
+            <p>🚀 Stock: ${data.price.symbol}</p>
+            <p>🚗Name: ${data.price.longName}
+            <p>🪐Post Market: ${data.price.postMarketPrice.raw}</p> `
         })
     }
-
-// Tesla()
+    tesla()

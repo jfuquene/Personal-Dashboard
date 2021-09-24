@@ -31,11 +31,11 @@ h1.time {
     text-align: center;
     font-size: 5rem;
 }
-div#crypto {
+div#stock {
     font-size: 1.3rem;
 }
 
-div#crypto > p {
+div#stock > p {
     margin-left: 5px;
     margin-top: 0;
     margin-bottom: 0;
