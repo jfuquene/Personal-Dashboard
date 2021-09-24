@@ -78,11 +78,13 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
 
             // console.log(data)
             document.getElementById("stock").innerHTML = `
-            <p>Stock: ${data.price.symbol}</p>
-            <p>Name: ${data.price.longName}
-            <p>Post Market: ${data.price.postMarketPrice.raw}</p></br></br>`
+            <p>🎯Stock: ${data.price.symbol}</p>
+            <p>👆Name: ${data.price.longName}
+            <p>👇Post Market: ${data.price.postMarketPrice.raw}</p></br></br>`
         })
+        Tesla()
     }
+    
 microsoft()
 
 
@@ -103,4 +105,4 @@ microsoft()
         })
     }
 
-Tesla()
+// Tesla()
